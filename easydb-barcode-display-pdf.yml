@@ -1,0 +1,12 @@
+plugin:
+  name: easydb-barcode-display-pdf
+  version: 1.0
+  server:
+    api-version:
+      require: 1
+  webfrontend:
+    url: easydb-barcode-display-pdf.js
+    l10n: l10n/
+    dependencies:
+      - easydb-barcode-display
+      - pdf-creator
