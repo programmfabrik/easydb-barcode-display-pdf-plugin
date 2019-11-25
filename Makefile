@@ -13,8 +13,7 @@ INSTALL_FILES = \
 	$(JS) \
 	easydb-barcode-display-pdf.yml
 
-COFFEE_FILES = \
-	src/webfrontend/pdf-creator/node/BarcodeNode.coffee
+COFFEE_FILES = src/webfrontend/pdf-creator/node/BarcodeNode.coffee
 
 all: build
 

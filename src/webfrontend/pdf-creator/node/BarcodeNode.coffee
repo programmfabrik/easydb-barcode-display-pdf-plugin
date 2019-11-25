@@ -75,7 +75,11 @@ class ez5.PdfCreator.Node.Barcode extends ez5.PdfCreator.Node
 
 	__getSettingsFields: ->
 		idObjecttype = @__getIdObjecttype()
-		fields = ez5.BarcodeMaskSplitter.getBarcodeOptions(idObjecttype, store_value: "fullname")
+		fields = ez5.BarcodeMaskSplitter.getBarcodeOptions(idObjecttype,
+			store_value: "fullname"
+			filter: (field) ->
+				return not field.insideNested()
+		)
 		fields.push(
 			type: CUI.Select
 			name: "columns"
