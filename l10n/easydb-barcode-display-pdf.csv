@@ -1,4 +1,4 @@
 key,de-DE,en-US
 pdf-creator.node.barcode.display-name,Barcode,Barcode
-pdf-creator.settings.barcode.barcode-width|text,Barcode width,Barcode width
+pdf-creator.settings.barcode.barcode-width|text,Barcode Breite,Barcode width
 pdf-creator.settings.barcode.barcode-width|placeholder,100%,100%
