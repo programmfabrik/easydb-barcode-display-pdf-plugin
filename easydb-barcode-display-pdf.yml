@@ -8,5 +8,5 @@ plugin:
     url: easydb-barcode-display-pdf.js
     l10n: l10n/
     dependencies:
-      - easydb-barcode-display-plugin
-      - easydb-pdf-creator-plugin
+      - easydb-barcode-display
+      - pdf-creator
