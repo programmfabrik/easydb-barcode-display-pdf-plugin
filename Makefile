@@ -1,4 +1,5 @@
 PLUGIN_NAME = easydb-barcode-display-pdf
+PLUGIN_PATH = easydb-barcode-display-pdf-plugin
 
 EASYDB_LIB = easydb-library
 L10N_FILES = l10n/$(PLUGIN_NAME).csv
