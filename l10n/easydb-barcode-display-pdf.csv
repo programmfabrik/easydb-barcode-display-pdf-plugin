@@ -1,4 +1,4 @@
-key,de-DE,en-US,da-DK,fi-FI,sv-SE
-pdf-creator.node.barcode.display-name,Barcode,Barcode,Barcode,Viivakoodi,Barcode
-pdf-creator.settings.barcode.barcode-width|text,Barcode Breite,Barcode width,Barcode width,100%,Barcode width
-pdf-creator.settings.barcode.barcode-width|placeholder,100%,100%,100%,Viivakoodin leveys,100%
+key,de-DE,R,en-US,R,da-DK,R,fi-FI,R,sv-SE,R,fr-FR,R,it-IT,R,es-ES,R
+pdf-creator.node.barcode.display-name,Barcode,FALSE,Barcode,FALSE,Barcode,FALSE,Viivakoodi,FALSE,Streckkod,FALSE,,FALSE,,FALSE,,FALSE
+pdf-creator.settings.barcode.barcode-width|text,Barcode Breite,FALSE,Barcode width,FALSE,Barcode width,FALSE,100%,FALSE,Streckkodsbredd,FALSE,,FALSE,,FALSE,,FALSE
+pdf-creator.settings.barcode.barcode-width|placeholder,100%,FALSE,100%,FALSE,100%,FALSE,Viivakoodin leveys,FALSE,100%,FALSE,,FALSE,,FALSE,,FALSE
