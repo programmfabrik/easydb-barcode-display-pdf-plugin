@@ -1,5 +1,6 @@
 plugin:
   name: easydb-barcode-display-pdf-plugin
+  url: https://github.com/programmfabrik/easydb-barcode-display-pdf-plugin
   displayname:
     en-US: "Custom Mask Splitter: Barcode (PDF Creator)"
     de-DE: "Custom Mask Splitter: Barcode (PDF Creator)"
