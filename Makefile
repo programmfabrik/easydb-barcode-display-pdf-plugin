@@ -26,3 +26,10 @@ code: $(JS)
 clean: clean-base
 
 wipe: wipe-base
+
+zip: build
+	mkdir -p zip/$(PLUGIN_PATH)
+	cp -r build zip/$(PLUGIN_PATH)/
+	cp manifest.yml zip/$(PLUGIN_PATH)/
+	(cd zip; zip - -r . > ../$(PLUGIN_PATH).zip)
+	rm -r zip/
