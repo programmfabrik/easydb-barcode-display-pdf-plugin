@@ -31,10 +31,11 @@ class ez5.PdfCreator.Node.Barcode extends ez5.PdfCreator.Node
 			return
 
 		barcode = new ez5.Barcode
-			mode: "detail"
+			mode: "pdf"
 			type: data.code_type
 			barcode_type: data.barcode_type
-		barcode.render(barcodeData, true)
+
+		barcode.render(barcodeData)
 
 		barcodeWidth = data.barcode_width or "100%"
 		img = CUI.dom.findElement(barcode.DOM, "img")
