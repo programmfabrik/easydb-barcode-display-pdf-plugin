@@ -13,19 +13,31 @@ class ez5.PdfCreator.Node.Barcode extends ez5.PdfCreator.Node
 			return
 
 		fieldNameSplit = data.field_name.split(".")
-		barcodeData = null
-		getData = (_data, fieldNames) =>
-			name = fieldNames[0]
-			value = _data[name]
-			if CUI.util.isString(value)
-				barcodeData = value
+		[fieldName] = fieldNameSplit
+
+		if fieldName in ['_uuid', '_system_object_id', '_global_object_id']
+			_data = opts.object
+			barcodeData = _data[fieldName]
+		else
+			getData = (_data, fieldNames) =>
+				name = fieldNames[0]
+				value = _data[name]
+				if CUI.util.isString(value)
+					barcodeData = value
+					return
+
+				fieldNames = fieldNames.slice(1)
+				if CUI.util.isPlainObject(value)
+					getData(value, fieldNames)
 				return
 
-			fieldNames = fieldNames.slice(1)
-			if CUI.util.isPlainObject(value)
-				getData(value, fieldNames)
-			return
-		getData(object, fieldNameSplit)
+			getData(object, fieldNameSplit)
+
+		# add prefix and suffix if given
+			if @opts?.data?.code_prefix
+				barcodeData = @opts.data.code_prefix + barcodeData
+			if @opts?.data?.code_suffix
+				barcodeData = barcodeData + @opts.data.code_suffix
 
 		if not barcodeData
 			return
