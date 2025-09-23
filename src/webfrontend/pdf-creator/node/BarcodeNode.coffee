@@ -9,35 +9,22 @@ class ez5.PdfCreator.Node.Barcode extends ez5.PdfCreator.Node
 			return
 
 		data = @getData()
+
 		if not data.field_name
 			return
 
-		fieldNameSplit = data.field_name.split(".")
-		[fieldName] = fieldNameSplit
+		[objectName, fieldName = objectName] = data.field_name.split(".")
 
-		if fieldName in ['_uuid', '_system_object_id', '_global_object_id']
-			_data = opts.object
-			barcodeData = _data[fieldName]
+		if fieldName.startsWith("_")
+			barcodeData = object[fieldName]
 		else
-			getData = (_data, fieldNames) =>
-				name = fieldNames[0]
-				value = _data[name]
-				if CUI.util.isString(value)
-					barcodeData = value
-					return
-
-				fieldNames = fieldNames.slice(1)
-				if CUI.util.isPlainObject(value)
-					getData(value, fieldNames)
-				return
-
-			getData(object, fieldNameSplit)
+			barcodeData = object[objectName][fieldName]
 
 		# add prefix and suffix if given
-			if @opts?.data?.code_prefix
-				barcodeData = @opts.data.code_prefix + barcodeData
-			if @opts?.data?.code_suffix
-				barcodeData = barcodeData + @opts.data.code_suffix
+		if data?.code_prefix
+			barcodeData = data.code_prefix + barcodeData
+		if data?.code_suffix
+			barcodeData = barcodeData + data.code_suffix
 
 		if not barcodeData
 			return
@@ -50,9 +37,8 @@ class ez5.PdfCreator.Node.Barcode extends ez5.PdfCreator.Node
 		barcode.render(barcodeData)
 
 		barcodeWidth = data.barcode_width or "100%"
-		img = CUI.dom.findElement(barcode.DOM, "img")
-		CUI.dom.setStyle(img, width: barcodeWidth)
-		return img
+		CUI.dom.setStyle(barcode.DOM, width: barcodeWidth)
+		return barcode.DOM
 
 	__getSettingsFields: ->
 		idObjecttype = @__getIdObjecttype()
